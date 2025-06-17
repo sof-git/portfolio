@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
-
-const skills = reactive([
+import { ref, type Ref } from 'vue';
+interface Skill {
+    name: string;
+    img: string;
+    skill: number;
+    color?: string;
+}
+const title: Ref<string> = ref('Compétences Techniques');
+const skills: Skill[] = reactive([
         {
             name:'HTML',
             img:'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
@@ -83,7 +90,7 @@ const skills = reactive([
     <v-container>
         <v-row>
             <v-col cols="12" class="d-flex flex-column align-center text-center">
-                <p class="text-h1 rounded-lg mt-10 bg-primary px-5 py-5 mb-10">Compétences</p>
+                <p class="text-h3 text-md-h1 rounded-lg mt-10 bg-primary px-5 py-5 mb-10">{{ title }}</p>
             </v-col>
         </v-row>
         <v-row>
@@ -94,22 +101,21 @@ const skills = reactive([
                         :key="skill.name"
                         cols="12"
                         md="4"
-                        class="d-flex flex-row align-center text-center mb-5"
+                        class="d-flex flex-row align-center mb-5"
                     >
                         <v-img
                             :src="skill.img"
-                            class="mb-3"
                             width="100px"
                             height="100px"
                             contain
                         ></v-img>
-                        <p class="text-h6 mx-5 ">{{ skill.name }}</p>
+                        <p class="text-h6 mx-5">{{ skill.name }}</p>
                         <v-progress-linear
                             :model-value="skill.skill"
                             height="20"
                             rounded
                             :color="skill.color || 'primary'"
-                            class="w-100 mt-2"
+                            class="w-100 "
                         >
                         <template v-slot:default="{ value }">
                             <p class="text-white font-weight-bold">{{ skill.skill }}%</p>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Bio from '@/components/Bio.vue';
 import Competences from '~/components/Competences.vue';
+import Experiences from '~/components/Experiences.vue';
 </script>
 <template>
     <v-container class="pt-0">
@@ -12,6 +13,11 @@ import Competences from '~/components/Competences.vue';
         <v-row>
             <v-col class="full-height-section" cols="12">
                 <Competences />
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col class="full-height-section" cols="12">
+                <Experiences />
             </v-col>
         </v-row>
     </v-container>
