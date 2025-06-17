@@ -8,7 +8,7 @@ const description: Ref<string> = ref('Animé par une passion pour le développem
         <v-container>
             <v-row>
                 <v-col cols="12" md="8" offset-lg="2"  class="d-flex flex-column align-center text-center">
-                    <p class="text-h1  rounded-lg mt-10 bg-primary px-5 py-1">{{ title }}</p>
+                    <p class="text-h3 text-md-h1  rounded-lg mt-10 bg-primary px-5 py-1">{{ title }}</p>
                 </v-col>
             </v-row>
             <v-row class="mt-5">
