@@ -90,7 +90,7 @@ const skills: Skill[] = reactive([
     <v-container>
         <v-row>
             <v-col cols="12" class="d-flex flex-column align-center text-center">
-                <p class="text-h3 text-md-h1 rounded-lg mt-10 bg-primary px-5 py-5 mb-10">{{ title }}</p>
+                <p class="text-h3 text-md-h2 rounded-lg mt-10 bg-primary px-5 py-5 mb-10">{{ title }}</p>
             </v-col>
         </v-row>
         <v-row>
