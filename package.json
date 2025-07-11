@@ -18,6 +18,7 @@
     "vuetify-nuxt-module": "^0.18.7"
   },
   "devDependencies": {
+    "@formkit/auto-animate": "^0.8.2",
     "sass": "^1.89.1"
   }
 }
