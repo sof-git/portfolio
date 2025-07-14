@@ -31,11 +31,6 @@ export default defineNuxtConfig({
   vuetify: {
     vuetifyOptions: './vuetify.config.ts' // options file for Vuetify
   },
-  css: [
-    '@/assets/css/main.css',
-    '@/assets/css/variables.css',
-    '@/assets/css/animations.css'
-  ],
   build: {
     transpile: ['vuetify-nuxt-module', '@formkit/auto-animate'],
   },
