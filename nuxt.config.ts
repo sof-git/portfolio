@@ -26,6 +26,9 @@ export default defineNuxtConfig({
     }
   },
   compatibilityDate: '2025-05-15',
+  router: {
+    base:'/portfolio/'
+  },
   devtools: { enabled: true },
   modules: ['vuetify-nuxt-module', '@formkit/auto-animate'],
   vuetify: {
