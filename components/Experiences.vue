@@ -150,6 +150,7 @@ const experiences: experiences[] = reactive([
         <v-row>
             <v-col cols="12" md="6" lg="4" offset-md="3" offset-lg="4" class="d-flex flex-column align-center">
                     <v-timeline
+                        v-if="$vuetify.display.smAndDown ? false : true"
                         dot-color="secondary"
                         :side="$vuetify.display.smAndDown ? 'end' : undefined"
                         :density="$vuetify.display.smAndDown ? 'compact' : undefined"
@@ -215,6 +216,61 @@ const experiences: experiences[] = reactive([
                             </v-card>
                         </v-timeline-item>
                     </v-timeline>
+                        <v-card
+                            v-else
+                            v-for="(experience, index) in experiences"
+                            :key="index"
+                            class="mb-5"
+                            >
+                                <v-card-title class="text-h5 text-primary">{{ experience.company }}</v-card-title>
+                                <v-card-subtitle class="d-flex flex-column align-start">
+                                    <span v-if="experience.dateStart">- {{ experience.dateStart }} à {{ experience.dateEnd }}</span>
+                                    <span>- {{ experience.position }}</span>
+                                    <span v-if="experience.localisation">- {{ experience.localisation }}</span>
+                                    <span v-if="experience.contract">- {{ experience.contract }}</span>
+                                    <span v-if="experience.employees">- {{ experience.employees }} employés</span>
+                                    <span v-if="experience.type">- {{ experience.type }}</span>
+                                </v-card-subtitle>
+                                <v-tabs v-model="tabs[index].tab" class="mt-3 text-center">
+                                    <v-tab value="description" class="text-buttons">Description</v-tab>
+                                    <v-tab value="missions" class="text-buttons">Realisations</v-tab>
+                                    <v-tab value="stack" class="text-buttons">Stack Technique</v-tab>
+                                </v-tabs>
+                                <v-card-text>
+                                    <v-tabs-window v-model="tabs[index].tab">
+                                        <v-tabs-window-item value="description">
+                                            <p>{{ experience.description }}</p>
+                                        </v-tabs-window-item>
+                                        <v-tabs-window-item value="missions">
+                                            <ul>
+                                                <li v-for="(mission, missionIndex) in experience.missions" :key="missionIndex">
+                                                    <h4 class="text-h6 text-secondary">{{ mission.title }}</h4>
+                                                    <p>- {{ mission.description }}</p>
+                                                </li>
+                                            </ul>
+                                        </v-tabs-window-item>
+                                        <v-tabs-window-item value="stack">
+                                            <!-- load stack frontend, backend, database, devops and other with images -->
+                                            <div v-for="(category, catIndex) in Object.entries(experience.stack)" :key="catIndex" class="mb-3 align-center text-center">
+                                                <h4 class="text-h6 text-secondary">{{ category[0].charAt(0).toUpperCase() + category[0].slice(1) }}</h4>
+                                                <ul class="d-flex flex-wrap justify-center ">
+                                                    <li v-for="(tech, techIndex) in category[1]" :key="techIndex" class="mx-2">
+                                                        <v-img
+                                                            :src="`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech}/${tech}-original.svg`"
+                                                            width="40"
+                                                            height="40"
+                                                            contain
+                                                        ></v-img>
+                                                        <p class="text-caption">{{ tech.charAt(0).toUpperCase() + tech.slice(1) }}</p>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+
+                                        </v-tabs-window-item>
+                                    </v-tabs-window>
+                                </v-card-text>
+                            </v-card>
             </v-col>
         </v-row>
     </v-container>
