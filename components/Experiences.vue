@@ -220,7 +220,7 @@ const experiences: experiences[] = reactive([
                             v-else
                             v-for="(experience, index) in experiences"
                             :key="index"
-                            class="mb-5"
+                            class="mb-5 w-100"
                             >
                                 <v-card-title class="text-h5 text-primary">{{ experience.company }}</v-card-title>
                                 <v-card-subtitle class="d-flex flex-column align-start">
