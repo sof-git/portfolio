@@ -23,12 +23,16 @@ export default defineNuxtConfig({
         { name: 'twitter:description', content: 'My personal portfolio showcasing my previous experiences and skills.' },
         { name: 'twitter:image', content: 'https://votre-site.com/image.jpg' }        
       ],
-    }
+    },
+    baseURL: '/portfolio/', // Set the base URL for the application
   },
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  modules: ['vuetify-nuxt-module'],
+  modules: ['vuetify-nuxt-module', '@formkit/auto-animate'],
   vuetify: {
     vuetifyOptions: './vuetify.config.ts' // options file for Vuetify
-  }
+  },
+  build: {
+    transpile: ['vuetify-nuxt-module', '@formkit/auto-animate'],
+  },
 })
