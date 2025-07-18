@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, type Ref } from 'vue';
 const title: Ref<string> = ref('Sofiane Turki - développeur fullstack');
-const description: Ref<string> = ref('Animé par une passion pour le développement et une soif constante d\'apprentissage, j\'ai acquis des compétences solides en combinant formation et pratique. Autodidacte et proactif, j\'ai exploré de nouvelles technologies et relevé des défis techniques avec rigueur. Je cherche à apporter mon professionnalisme et mon dynamisme dans un environnement où je pourrai continuer à progresser.');
+const description: Ref<string> = ref('Animé par une passion pour le développement et une soif constante d\'apprentissage, j\'ai acquis des compétences solides en combinant formation et pratique. Curieux et proactif, j\'ai exploré de nouvelles technologies et relevé des défis techniques avec rigueur. Je cherche à apporter mon professionnalisme et mon dynamisme dans un environnement où je pourrai continuer à progresser.');
 </script>
 <template>
     <div class="d-flex flex-column justify-center align-center">
