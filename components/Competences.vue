@@ -1,3 +1,52 @@
+<template>
+    <v-container>
+        <v-row>
+            <v-col cols="12" class="d-flex flex-column align-center text-center">
+                <p class="text-h3 text-md-h2 rounded-lg mt-10 bg-primary px-5 py-5 mb-10">{{ title }}</p>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-row>
+                    <v-col
+                        v-for="skill in skills"
+                        :key="skill.name"
+                        cols="12"
+                        md="4"
+                        class="d-flex flex-row align-center mb-5"
+                        :data-skill="skill.name"
+                    >
+                        <v-img
+                            :src="skill.img"
+                            width="100px"
+                            height="100px"
+                            contain
+                        ></v-img>
+                        <p class="text-h6 mx-5">{{ skill.name }}</p>
+                        <v-progress-linear
+                            :model-value="skill.visible ? skill.skill : 0"
+                            height="20"
+                            rounded
+                            :color="skill.color || 'primary'"
+                            class="w-100"
+                        >
+                            <template v-slot:default="{ value }">
+                                <p class="text-white font-weight-bold">{{ skill.visible ? `${skill.skill}%` : '' }}</p>
+                            </template>
+                        </v-progress-linear>
+                    </v-col>
+                </v-row>
+            </v-col>
+        </v-row>
+    </v-container>
+</template>
+
+<style scoped lang="scss">
+.v-progress-linear {
+    transition: width 1s ease-in-out;
+}
+</style>
+
 <script setup lang="ts">
 import { ref, reactive, onMounted, nextTick } from 'vue';
 
@@ -11,7 +60,7 @@ interface Skill {
 
 const title = ref('Compétences Techniques');
 
-const skills = reactive<Skill[]>([
+const skills: Skill[] = reactive<Skill[]>([
     {
         name: 'HTML',
         img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
@@ -119,52 +168,3 @@ onMounted(async () => {
     });
 });
 </script>
-
-<template>
-    <v-container>
-        <v-row>
-            <v-col cols="12" class="d-flex flex-column align-center text-center">
-                <p class="text-h3 text-md-h2 rounded-lg mt-10 bg-primary px-5 py-5 mb-10">{{ title }}</p>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col>
-                <v-row>
-                    <v-col
-                        v-for="skill in skills"
-                        :key="skill.name"
-                        cols="12"
-                        md="4"
-                        class="d-flex flex-row align-center mb-5"
-                        :data-skill="skill.name"
-                    >
-                        <v-img
-                            :src="skill.img"
-                            width="100px"
-                            height="100px"
-                            contain
-                        ></v-img>
-                        <p class="text-h6 mx-5">{{ skill.name }}</p>
-                        <v-progress-linear
-                            :model-value="skill.visible ? skill.skill : 0"
-                            height="20"
-                            rounded
-                            :color="skill.color || 'primary'"
-                            class="w-100"
-                        >
-                            <template v-slot:default="{ value }">
-                                <p class="text-white font-weight-bold">{{ skill.visible ? `${skill.skill}%` : '' }}</p>
-                            </template>
-                        </v-progress-linear>
-                    </v-col>
-                </v-row>
-            </v-col>
-        </v-row>
-    </v-container>
-</template>
-
-<style scoped lang="scss">
-.v-progress-linear {
-    transition: width 1s ease-in-out;
-}
-</style>

@@ -1,6 +1,4 @@
-<script setup lang="ts">
-import Header from '@/components/Header.vue';
-</script>
+
 <template>
     <v-layout
         app
@@ -12,6 +10,7 @@ import Header from '@/components/Header.vue';
         fill-height
     >
     <Header />
+    <Nav />
     <v-main>
         <v-container>
             <NuxtPage />
@@ -19,3 +18,14 @@ import Header from '@/components/Header.vue';
     </v-main>
     </v-layout>
 </template>
+
+<script setup lang="ts">
+import Header from '@/components/Header.vue';
+import Nav from '@/components/Nav.vue';
+const drawer:Ref<boolean> = ref(false);
+const toggleDrawer = () => {
+  drawer.value = !drawer.value;
+};
+provide('drawer', drawer);
+provide('toggleDrawer', toggleDrawer);
+</script>
