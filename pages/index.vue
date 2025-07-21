@@ -23,7 +23,7 @@ import Contact from '~/components/Contact.vue';
             </v-col>
         </v-row>
         <v-row>
-            <v-col class="full-height-section" cols="12" id="contact">
+            <v-col class="bottom-section" cols="12" id="contact">
                 <Contact />
             </v-col>
         </v-row>
@@ -33,5 +33,8 @@ import Contact from '~/components/Contact.vue';
 <style scoped>
 .full-height-section {
   min-height: 100vh;
+}
+.bottom-section {
+  min-height: 50vh;
 }
 </style>

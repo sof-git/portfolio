@@ -1,14 +1,11 @@
-<script setup lang="ts">
-import { ref, type Ref } from 'vue';
-const title: Ref<string> = ref('Sofiane Turki - développeur fullstack');
-const description: Ref<string> = ref('Animé par une passion pour le développement et une soif constante d\'apprentissage, j\'ai acquis des compétences solides en combinant formation et pratique. Curieux et proactif, j\'ai exploré de nouvelles technologies et relevé des défis techniques avec rigueur. Je cherche à apporter mon professionnalisme et mon dynamisme dans un environnement où je pourrai continuer à progresser.');
-</script>
 <template>
     <div class="d-flex flex-column justify-center align-center">
         <v-container>
             <v-row>
                 <v-col cols="12" md="8" offset-lg="2"  class="d-flex flex-column align-center text-center">
-                    <p class="text-h3 text-md-h2  rounded-lg mt-10 bg-primary px-5 py-1">{{ title }}</p>
+                    <p class="main-title">{{ title.name }}</p>
+                    <p class="subtitle">{{ title.role }}</p>
+                    <p class="text-subtitle-1">{{ title.location }}</p>
                 </v-col>
             </v-row>
             <v-row class="mt-5">
@@ -24,6 +21,16 @@ const description: Ref<string> = ref('Animé par une passion pour le développem
         </v-container>
     </div>
 </template>
+
+<script setup lang="ts">
+import { ref, type Ref } from 'vue';
+const title = reactive({
+    name: 'Sofiane TURKI',
+    role: 'Développeur Web Full Stack',
+    location:'Paris, France'
+})
+const description: Ref<string> = ref('Animé par une passion pour le développement et une soif constante d\'apprentissage, j\'ai acquis des compétences solides en combinant formation et pratique. Curieux et proactif, j\'ai exploré de nouvelles technologies et relevé des défis techniques avec rigueur. Je cherche à apporter mon professionnalisme et mon dynamisme dans un environnement où je pourrai continuer à progresser.');
+</script>
 
 <style scoped>
 
