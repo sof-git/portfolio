@@ -26,7 +26,7 @@
 import { ref, type Ref } from 'vue';
 const title = reactive({
     name: 'Sofiane TURKI',
-    role: 'Développeur Web Full Stack',
+    role: 'Développeur Web Fullstack',
     location:'Paris, France'
 })
 const description: Ref<string> = ref('Animé par une passion pour le développement et une soif constante d\'apprentissage, j\'ai acquis des compétences solides en combinant formation et pratique. Curieux et proactif, j\'ai exploré de nouvelles technologies et relevé des défis techniques avec rigueur. Je cherche à apporter mon professionnalisme et mon dynamisme dans un environnement où je pourrai continuer à progresser.');

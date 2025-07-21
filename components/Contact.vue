@@ -11,7 +11,6 @@
                     <v-img height="100" width="100" :src="icon.img ? icon.img : icon.icon" :alt="icon.name" ></v-img>
                     <p class="text-h6">{{ icon.name }}</p>
                 </div>
-                    
             </v-col>
         </v-row>
     </v-container>

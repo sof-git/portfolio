@@ -26,9 +26,7 @@ export default defineNuxtConfig({
     },
     baseURL: '/portfolio/', // Set the base URL for the application
   },
-  css: ['@/assets/css/globals.scss',
-    '@/assets/css/components.scss'
-  ],
+  css: ['@/assets/css/globals.scss','@mdi/font/css/materialdesignicons.min.css',],
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
   modules: ['vuetify-nuxt-module', '@formkit/auto-animate'],

@@ -32,7 +32,14 @@
                                     <span v-if="experience.employees">- {{ experience.employees }} employés</span>
                                     <span v-if="experience.type">- {{ experience.type }}</span>
                                 </v-card-subtitle>
-                                <v-tabs v-model="experience.index" class="mt-3 text-center">
+                                <v-tabs 
+                                    next-icon="mdi-arrow-right-bold-box-outline"
+                                    prev-icon="mdi-arrow-left-bold-box-outline"
+                                    center-active 
+                                    show-arrows 
+                                    v-model="experience.index" 
+                                    class="mt-3 text-center"
+                                >
                                     <v-tab value="description" class="text-buttons">Description</v-tab>
                                     <v-tab value="missions" class="text-buttons">Realisations</v-tab>
                                     <v-tab value="stack" class="text-buttons">Stack Technique</v-tab>
@@ -89,7 +96,7 @@
                                     <span v-if="experience.employees">- {{ experience.employees }} employés</span>
                                     <span v-if="experience.type">- {{ experience.type }}</span>
                                 </v-card-subtitle>
-                                <v-tabs v-model="experience.index" class="mt-3 text-center">
+                                <v-tabs show-arrows v-model="experience.index" class="mt-3 text-center">
                                     <v-tab value="description" class="text-buttons">Description</v-tab>
                                     <v-tab value="missions" class="text-buttons">Realisations</v-tab>
                                     <v-tab value="stack" class="text-buttons">Stack Technique</v-tab>
