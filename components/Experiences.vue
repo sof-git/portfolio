@@ -61,8 +61,8 @@
                                             <!-- load stack frontend, backend, database, devops and other with images -->
                                             <div v-for="(category, catIndex) in Object.entries(experience.stack)" :key="catIndex" class="mb-3 align-center text-center">
                                                 <h4 class="text-h6 text-secondary">{{ category[0].charAt(0).toUpperCase() + category[0].slice(1) }}</h4>
-                                                <ul class="d-flex flex-wrap justify-center ">
-                                                    <li v-for="(tech, techIndex) in category[1]" :key="techIndex" class="mx-2">
+                                                <ul class="d-flex flex-wrap justify-center">
+                                                    <li v-for="(tech, techIndex) in category[1]" :key="techIndex" class="mx-2 d-flex flex-column align-center">
                                                         <v-img
                                                             :src="`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech}/${tech}-original.svg`"
                                                             width="40"

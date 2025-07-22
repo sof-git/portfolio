@@ -5,11 +5,12 @@
         <p class="text-h3 text-md-h2 rounded-lg mt-10 bg-primary px-5 py-5 mb-10">{{ title }}</p>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row class="d-flex flex-wrap justify-center">
       <v-col
         v-for="category in categories"
         :key="category"
         cols="12"
+        md="6" offset-md="3" lg="3" offset-lg="0"
         class="d-flex flex-column align-center mb-5"
       >
         <p class="text-h4 mb-5 text-secondary">{{ category }}</p>
@@ -68,14 +69,14 @@ const title = ref('Compétences Techniques');
 
 const skills: Skill[] = reactive<Skill[]>([
     {
-        name: 'HTML',
+        name: 'HTML 5',
         img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
         skill: 80,
         visible: false,
         stack: 'Frontend'
     },
     {
-        name: 'CSS',
+        name: 'CSS 3',
         img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
         skill: 85,
         visible: false,
