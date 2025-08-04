@@ -2,9 +2,10 @@
     <v-container>
         <v-row>
             <v-col cols="12" class="d-flex flex-column align-center text-center">
-                    <p class="text-h3 text-md-h2 rounded-lg mt-10 bg-primary px-5 py-5 mb-10 text-align-center">{{ title }}</p>
+                    <p class="section-title mb-10">{{ title }}</p>
             </v-col>
         </v-row>    
+
         <v-row>
             <v-col cols="12" md="6" lg="4" offset-md="3" offset-lg="4" class="d-flex flex-column align-center">
                     <v-timeline
@@ -20,65 +21,66 @@
                             class="mb-5"
                             :icon="index % 2 === 0 ? 'mdi-briefcase' : 'mdi-account-tie'"
                             >
-                            <v-card
-
-                            >
-                                <v-card-title class="text-h5 text-primary">{{ experience.company }}</v-card-title>
-                                <v-card-subtitle class="d-flex flex-column align-start">
-                                    <span v-if="experience.dateStart">- {{ experience.dateStart }} à {{ experience.dateEnd }}</span>
-                                    <span>- {{ experience.position }}</span>
-                                    <span v-if="experience.localisation">- {{ experience.localisation }}</span>
-                                    <span v-if="experience.contract">- {{ experience.contract }}</span>
-                                    <span v-if="experience.employees">- {{ experience.employees }} employés</span>
-                                    <span v-if="experience.type">- {{ experience.type }}</span>
-                                </v-card-subtitle>
-                                <v-tabs 
-                                    next-icon="mdi-arrow-right-bold-box-outline"
-                                    prev-icon="mdi-arrow-left-bold-box-outline"
-                                    center-active 
-                                    show-arrows 
-                                    v-model="experience.index" 
-                                    class="mt-3 text-center"
-                                >
-                                    <v-tab value="description" class="text-buttons">Description</v-tab>
-                                    <v-tab value="missions" class="text-buttons">Realisations</v-tab>
-                                    <v-tab value="stack" class="text-buttons">Stack Technique</v-tab>
-                                </v-tabs>
-                                <v-card-text>
-                                    <v-tabs-window v-model="experience.index">
-                                        <v-tabs-window-item value="description">
-                                            <p>{{ experience.description }}</p>
-                                        </v-tabs-window-item>
-                                        <v-tabs-window-item value="missions">
-                                            <ul>
-                                                <li v-for="(mission, missionIndex) in experience.missions" :key="missionIndex">
-                                                    <h4 class="text-h6 text-secondary">{{ mission.title }}</h4>
-                                                    <p>- {{ mission.description }}</p>
-                                                </li>
-                                            </ul>
-                                        </v-tabs-window-item>
-                                        <v-tabs-window-item value="stack">
-                                            <!-- load stack frontend, backend, database, devops and other with images -->
-                                            <div v-for="(category, catIndex) in Object.entries(experience.stack)" :key="catIndex" class="mb-3 align-center text-center">
-                                                <h4 class="text-h6 text-secondary">{{ category[0].charAt(0).toUpperCase() + category[0].slice(1) }}</h4>
-                                                <ul class="d-flex flex-wrap justify-center">
-                                                    <li v-for="(tech, techIndex) in category[1]" :key="techIndex" class="mx-2 d-flex flex-column align-center">
-                                                        <v-img
-                                                            :src="`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech}/${tech}-original.svg`"
-                                                            width="40"
-                                                            height="40"
-                                                            contain
-                                                        ></v-img>
-                                                        <p class="text-caption">{{ tech.charAt(0).toUpperCase() + tech.slice(1) }}</p>
+                            <v-expand-transition>
+                                <v-card>
+                                    <v-card-title class="text-h5 text-primary">{{ experience.company }}</v-card-title>
+                                    <v-card-subtitle class="d-flex flex-column align-start">
+                                        <span v-if="experience.dateStart">- {{ experience.dateStart }} à {{ experience.dateEnd }}</span>
+                                        <span>- {{ experience.position }}</span>
+                                        <span v-if="experience.localisation">- {{ experience.localisation }}</span>
+                                        <span v-if="experience.contract">- {{ experience.contract }}</span>
+                                        <span v-if="experience.employees">- {{ experience.employees }} employés</span>
+                                        <span v-if="experience.type">- {{ experience.type }}</span>
+                                    </v-card-subtitle>
+                                    <v-tabs 
+                                        next-icon="mdi-arrow-right-bold-box-outline"
+                                        prev-icon="mdi-arrow-left-bold-box-outline"
+                                        center-active 
+                                        show-arrows 
+                                        v-model="experience.tab" 
+                                        class="mt-3 text-center"
+                                    >
+                                        <v-tab value="description" class="text-buttons">Description</v-tab>
+                                        <v-tab value="missions" class="text-buttons">Realisations</v-tab>
+                                        <v-tab value="stack" class="text-buttons">Stack Technique</v-tab>
+                                    </v-tabs>
+                                    <v-card-text>
+                                        <v-tabs-window v-model="experience.tab">
+                                            <v-tabs-window-item value="description">
+                                                <p>{{ experience.description }}</p>
+                                            </v-tabs-window-item>
+                                            <v-tabs-window-item value="missions">
+                                                <ul>
+                                                    <li v-for="(mission, missionIndex) in experience.missions" :key="missionIndex">
+                                                        <h4 class="text-h6 text-secondary">{{ mission.title }}</h4>
+                                                        <p>- {{ mission.description }}</p>
                                                     </li>
                                                 </ul>
+                                            </v-tabs-window-item>
+                                            <v-tabs-window-item value="stack">
+                                                <!-- load stack frontend, backend, database, devops and other with images -->
+                                                <div v-for="(category, catIndex) in Object.entries(experience.stack)" :key="catIndex" class="mb-3 align-center text-center">
+                                                    <h4 class="text-h6 text-secondary">{{ category[0].charAt(0).toUpperCase() + category[0].slice(1) }}</h4>
+                                                    <ul class="d-flex flex-wrap justify-center">
+                                                        <li v-for="(tech, techIndex) in category[1]" :key="techIndex" class="mx-2 d-flex flex-column align-center">
+                                                            <v-img
+                                                                :src="`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech}/${tech}-original.svg`"
+                                                                width="40"
+                                                                height="40"
+                                                                contain
+                                                            ></v-img>
+                                                            <p class="text-caption">{{ tech.charAt(0).toUpperCase() + tech.slice(1) }}</p>
+                                                        </li>
+                                                    </ul>
 
-                                            </div>
+                                                </div>
 
-                                        </v-tabs-window-item>
-                                    </v-tabs-window>
-                                </v-card-text>
-                            </v-card>
+                                            </v-tabs-window-item>
+                                        </v-tabs-window>
+                                    </v-card-text>
+                                </v-card>
+                            </v-expand-transition>
+                            
                         </v-timeline-item>
                     </v-timeline>
                         <v-card
@@ -149,6 +151,7 @@ const display = useDisplay();
 // Define the interface for experiences
 interface experiences {
     index: number;
+    tab?: number;
     company: string;
     position: string;
     localisation?: string;
@@ -179,6 +182,7 @@ interface experiences {
 const experiences: experiences[] = reactive([
     {
         index: 0,
+        tab:0,
         company:"Alyce",
         position:"Développeur Fullstack",
         dateStart:"Mars 2022",
@@ -217,6 +221,7 @@ const experiences: experiences[] = reactive([
     },
     {
         index: 1,
+        tab:0,
         company:"EAT (Etude d'assurance Trollet)",
         position:"Développeur backend",
         dateStart:"Fevrier 2019",
@@ -247,6 +252,7 @@ const experiences: experiences[] = reactive([
     {
         index: 2,
         company:"Enedis",
+        tab:0,
         position:"Développeur intégrateur",
         dateStart:"Octobre 2018",
         dateEnd:"Janvier 2019",

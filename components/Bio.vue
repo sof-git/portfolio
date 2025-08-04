@@ -8,11 +8,23 @@
                     <p class="text-subtitle-1">{{ title.location }}</p>
                 </v-col>
             </v-row>
-            <v-row class="mt-5">
-                <v-col cols="12" md="3" offset-lg="3" class="d-flex flex-column align-center fill-height">
+            <v-row>
+                <v-col cols="12" md="4" offset-md="4" class="d-flex flex-column align-center fill-height">
                     <div
                         class="rounded-circle bg-primary text-center w-75 h-100 rounded-lg border-md"
                     ></div>
+                </v-col>
+            </v-row>
+            <v-row class="mt-5">
+                <v-col cols="12" md="3" offset-lg="3" class="d-flex flex-column align-center fill-height">
+                    <v-img
+                        class="rounded-circle border border-primary"
+                        src="/assets/images/IMG_20210112_153440.jpg"
+                        alt="Sofiane TURKI"
+                        cover
+                        width="264"
+                        height="264"
+                    ></v-img>
                 </v-col>
                 <v-col cols="12" md="4"  class="d-flex flex-column align-center">
                     <p class="text-h6 mt-5">{{ description }}</p>

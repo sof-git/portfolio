@@ -1,8 +1,8 @@
 .main-title {
   font-size: 6rem;
   font-weight: 600;
-  color: rgb(var(--v-theme-primary)); // Utilisez la couleur primaire définie dans votre configuration Vuetify
-  background-color: rgb(var(--v-theme-background)); // Utilisez la couleur de fond définie dans votre configuration Vuetify
+  color: rgb(var(--v-theme-primary)); 
+  background-color: rgb(var(--v-theme-background)); 
   border-radius: 0.5rem;
   margin-top: 2.5rem;
 }
@@ -13,4 +13,14 @@
   color: rgb(var(--v-theme-secondary));
 }
 
+.section-title {
+  font-size: 3rem;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(var(--v-theme-primary));
+  opacity: 0.9;
+  padding: 14px;
+}
 

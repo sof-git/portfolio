@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12" class="d-flex flex-column align-center text-center">
-        <p class="text-h3 text-md-h2 rounded-lg mt-10 bg-primary px-5 py-5 mb-10">{{ title }}</p>
+        <p class="section-title mb-10">{{ title }}</p>
       </v-col>
     </v-row>
     <v-row class="d-flex flex-wrap justify-center">
